@@ -13,6 +13,8 @@ import {AuthService} from "src/app/core/service/auth.service";
 import {RightSidebarService} from "src/app/core/service/rightsidebar.service";
 import {LanguageService} from "src/app/core/service/language.service";
 import {UnsubscribeOnDestroyAdapter} from "src/app/shared/UnsubscribeOnDestroyAdapter";
+import {MyclinicUtils} from "../../shared/utils/myclinic-utils";
+import {User} from "../../shared/models/entities/user.model";
 
 const document: any = window.document;
 
@@ -34,6 +36,8 @@ export class HeaderComponent
   defaultFlag: string;
   isOpenSidebar: boolean;
 
+  currentUser: User = new MyclinicUtils().getAppUser();
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
@@ -45,6 +49,7 @@ export class HeaderComponent
     public languageService: LanguageService
   ) {
     super();
+    console.log(this.currentUser);
   }
 
   listLang = [

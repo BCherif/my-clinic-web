@@ -6,7 +6,7 @@
       <a href="#" onClick="return false;" class="bars" (click)="mobileMenuSidebarOpen($event,'overlay-open')"></a>
       <a class="navbar-brand" routerLink={{homePage}}>
         <img src="assets/images/logo.png" alt=""/>
-        <span class="logo-name">Neka Clinic</span>
+        <span class="logo-name">100T</span>
       </a>
     </div>
     <div class="collapse navbar-collapse" [ngbCollapse]="isNavbarCollapsed">
@@ -69,21 +69,13 @@
         <!-- #END# Notifications-->
         <li class="nav-item" ngbDropdown>
           <a ngbDropdownToggle class="lang-dropdown">
-            <img *ngIf="flagvalue !== undefined" src="{{flagvalue}}" height="16">
-            <img *ngIf="flagvalue === undefined" src="{{defaultFlag}}" height="16">
+            <img src="assets/images/flags/mali.svg" height="16" alt="">
           </a>
-          <div ngbDropdownMenu class="dropdown-menu lang-item dropdown-menu-right pullDown">
-            <a href="javascript:void(0);" class="dropdown-item lang-item-list" *ngFor="let item of listLang"
-               (click)="setLanguage(item.text, item.lang, item.flag)"
-               [ngClass]="{'active': langStoreValue === item.lang}">
-              <img src="{{item.flag}}" class="flag-img" height="12"> <span class="align-middle">{{item.text}}</span>
-            </a>
-          </div>
         </li>
         <li class="nav-item user_profile" ngbDropdown>
           <div class="chip dropdown-toggle" ngbDropdownToggle class="nav-notification-icons pt-0">
-            <img src="{{userImg}}" class="user_img" width="32" height="32" alt="User">
-            <span>Ella Jones</span>
+            <img src="assets/images/user/user.jpeg" class="user_img" width="32" height="32" alt="User">
+            <span>{{currentUser?.username}}</span>
           </div>
           <div ngbDropdownMenu class="notification-dropdown pullDown">
             <div class="noti-list" style="position: relative; max-width: 600px; max-height: 300px;" [perfectScrollbar]>
