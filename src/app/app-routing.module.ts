@@ -10,12 +10,13 @@ const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
-    canActivate: [AuthGuard],
+    // // canActivate: [AuthGuard],
     children: [
-      {path: '', redirectTo: '/admin', pathMatch: 'full'},
+      {path: '', redirectTo: '/admin/dashboard/main', pathMatch: 'full'},
       {
         path: 'admin',
-        canActivate: [AuthGuard],
+        // path: 'admin',
+        // // canActivate: [AuthGuard],
         data: {
           role: Role.Admin,
         },
@@ -24,7 +25,7 @@ const routes: Routes = [
       },
       {
         path: 'doctor',
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         data: {
           role: Role.Doctor,
         },
@@ -33,7 +34,7 @@ const routes: Routes = [
       },
       {
         path: 'patient',
-        canActivate: [AuthGuard],
+        // // canActivate: [AuthGuard],
         data: {
           role: Role.Patient,
         },
@@ -42,7 +43,7 @@ const routes: Routes = [
       },
       {
         path: 'extra-pages',
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         loadChildren: () =>
           import('./extra-pages/extra-pages.module').then(
             (m) => m.ExtraPagesModule
@@ -50,7 +51,7 @@ const routes: Routes = [
       },
       {
         path: 'multilevel',
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         loadChildren: () =>
           import('./multilevel/multilevel.module').then(
             (m) => m.MultilevelModule

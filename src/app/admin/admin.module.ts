@@ -7,9 +7,12 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { AdminRoutingModule } from "./admin-routing.module";
 import { ComponentsModule } from "../shared/components/components.module";
+import { ServiceComponent } from './service/service.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ServiceComponent
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,

@@ -6,6 +6,10 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },  {
+    path: 'type-consultation',
+    loadChildren: () =>
+      import('./type-consultation/type-consultation.module').then((m) => m.TypeConsultationModule),
   },
 ];
 
