@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (sessionStorage.getItem('app-token') && sessionStorage.getItem('isLoggedin') === 'true') {
+        if (localStorage.getItem('app-token') && localStorage.getItem('isLoggedin') === 'true') {
             return true;
         } else {
             this.router.navigate(['/authentication/signin']);

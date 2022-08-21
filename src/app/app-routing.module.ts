@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
-    // // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       {path: '', redirectTo: '/admin/dashboard/main', pathMatch: 'full'},
       {

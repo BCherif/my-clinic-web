@@ -60,38 +60,38 @@ export class SigninComponent extends UnsubscribeOnDestroyAdapter implements OnIn
 
   onSubmit() {
     this.router.navigate(["/admin/dashboard/main"]);
-    // this.submitted = true;
-    // this.loading = true;
-    // this.error = "";
-    // if (this.authForm.invalid) {
-    //   this.error = "Nom d'utilisateur et mot de passe non valides !";
-    //   return;
-    // } else {
-    //   this.authBody.username = this.authForm.value.username;
-    //   this.authBody.password = this.authForm.value.password;
-    //   this.subs.sink = this._authService
-    //     .login(this.authBody)
-    //     .subscribe(
-    //       (res) => {
-    //         if (res['ok'] === true) {
-    //           setTimeout(() => {
-    //             this.toastr.success(res['message']);
-    //             localStorage.setItem('app-token', btoa(JSON.stringify(res['data'])));
-    //             localStorage.setItem('isLoggedin', 'true');
-    //             this.router.navigate(["/admin/dashboard/main"]);
-    //             this.loading = false;
-    //           }, 1000);
-    //         } else {
-    //           this.error = "Identifiant invalide";
-    //           this.toastr.error(res['message']);
-    //         }
-    //       },
-    //       (error) => {
-    //         this.error = error;
-    //         this.submitted = false;
-    //         this.loading = false;
-    //       }
-    //     );
-    // }
+    this.submitted = true;
+    this.loading = true;
+    this.error = "";
+    if (this.authForm.invalid) {
+      this.error = "Nom d'utilisateur et mot de passe non valides !";
+      return;
+    } else {
+      this.authBody.username = this.authForm.value.username;
+      this.authBody.password = this.authForm.value.password;
+      this.subs.sink = this._authService
+        .login(this.authBody)
+        .subscribe(
+          (res) => {
+            if (res['ok'] === true) {
+              setTimeout(() => {
+                this.toastr.success(res['message']);
+                localStorage.setItem('app-token', btoa(JSON.stringify(res['data'])));
+                localStorage.setItem('isLoggedin', 'true');
+                this.router.navigate(["/admin/dashboard/main"]);
+                this.loading = false;
+              }, 1000);
+            } else {
+              this.error = "Identifiant invalide";
+              this.toastr.error(res['message']);
+            }
+          },
+          (error) => {
+            this.error = error;
+            this.submitted = false;
+            this.loading = false;
+          }
+        );
+    }
   }
 }
