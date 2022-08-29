@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import {
-  UntypedFormBuilder,
-  UntypedFormGroup,
+  FormBuilder,
+  FormGroup,
   Validators,
 } from "@angular/forms";
 @Component({
@@ -10,10 +10,10 @@ import {
   styleUrls: ["./bookappointment.component.sass"],
 })
 export class BookappointmentComponent {
-  bookingForm: UntypedFormGroup;
+  bookingForm: FormGroup;
   hide3 = true;
   agree3 = false;
-  constructor(private fb: UntypedFormBuilder) {
+  constructor(private fb: FormBuilder) {
     this.bookingForm = this.fb.group({
       first: ["", [Validators.required, Validators.pattern("[a-zA-Z]+")]],
       last: [""],

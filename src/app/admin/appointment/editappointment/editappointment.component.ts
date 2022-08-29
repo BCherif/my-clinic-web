@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import {
-  UntypedFormBuilder,
-  UntypedFormGroup,
+  FormBuilder,
+  FormGroup,
   Validators,
 } from "@angular/forms";
 @Component({
@@ -10,7 +10,7 @@ import {
   styleUrls: ["./editappointment.component.sass"],
 })
 export class EditappointmentComponent {
-  bookingForm: UntypedFormGroup;
+  bookingForm: FormGroup;
   formdata = {
     first: "Pooja",
     last: "Sarma",
@@ -26,13 +26,13 @@ export class EditappointmentComponent {
     note: "No Comments",
     uploadFile: "",
   };
-  constructor(private fb: UntypedFormBuilder) {
+  constructor(private fb: FormBuilder) {
     this.bookingForm = this.createContactForm();
   }
   onSubmit() {
     console.log("Form Value", this.bookingForm.value);
   }
-  createContactForm(): UntypedFormGroup {
+  createContactForm(): FormGroup {
     return this.fb.group({
       first: [
         this.formdata.first,

@@ -7,10 +7,12 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
-  },  {
-    path: 'type-consultation',
+  },   {
+    path: "appointment",
     loadChildren: () =>
-      import('./type-consultation/type-consultation.module').then((m) => m.TypeConsultationModule),
+      import("./appointment/appointment.module").then(
+        (m) => m.AppointmentModule
+      ),
   },
   {
     path: "doctors",

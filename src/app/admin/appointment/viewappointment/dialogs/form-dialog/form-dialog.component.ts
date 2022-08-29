@@ -2,10 +2,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { Component, Inject } from "@angular/core";
 import { AppointmentService } from "../../appointment.service";
 import {
-  UntypedFormControl,
+  FormControl,
   Validators,
-  UntypedFormGroup,
-  UntypedFormBuilder,
+  FormGroup,
+  FormBuilder,
 } from "@angular/forms";
 import { Appointment } from "../../appointment.model";
 import { MAT_DATE_LOCALE } from "@angular/material/core";
@@ -19,13 +19,13 @@ import { formatDate } from "@angular/common";
 export class FormDialogComponent {
   action: string;
   dialogTitle: string;
-  appointmentForm: UntypedFormGroup;
+  appointmentForm: FormGroup;
   appointment: Appointment;
   constructor(
     public dialogRef: MatDialogRef<FormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public appointmentService: AppointmentService,
-    private fb: UntypedFormBuilder
+    private fb: FormBuilder
   ) {
     // Set the defaults
     this.action = data.action;
@@ -39,7 +39,7 @@ export class FormDialogComponent {
     }
     this.appointmentForm = this.createContactForm();
   }
-  formControl = new UntypedFormControl("", [
+  formControl = new FormControl("", [
     Validators.required,
     // Validators.email,
   ]);
@@ -50,7 +50,7 @@ export class FormDialogComponent {
       ? "Not a valid email"
       : "";
   }
-  createContactForm(): UntypedFormGroup {
+  createContactForm(): FormGroup {
     return this.fb.group({
       id: [this.appointment.id],
       img: [this.appointment.img],
